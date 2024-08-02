@@ -25,7 +25,7 @@ const startServer = async () => {
 
 startServer()
 
-app.get('/all-item', async (req, res) => {
+app.get('/all-items', async (req, res) => {
   try {
     const data = await db.all('SELECT * FROM stored_data')
     console.log('started')
