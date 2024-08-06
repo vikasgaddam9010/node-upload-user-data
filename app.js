@@ -5,7 +5,7 @@ const path = require('path')
 const cors = require('cors')
 
 const app = express()
-app.use(cors({origin: "*"}))
+app.use(cors({origin: '*'}))
 app.use(express.json())
 
 let db
@@ -62,18 +62,17 @@ app.get('/get-uploded-by-id/:id', async (req, res) => {
   }
 })
 
-app.delete("/del/:id", async (req, res) => {
+app.delete('/del/:id', async (req, res) => {
   try {
-    const sql = `DELETE FROM stored_data;`;  // Correct SQL syntax
-    await db.run(sql);
-    console.log('All rows deleted from stored_data');
-    res.status(200).send('All rows deleted successfully');
+    const sql = `DELETE FROM stored_data;` // Correct SQL syntax
+    await db.run(sql)
+    console.log('deleted from stored_data')
+    res.status(200).send('All rows deleted successfully')
   } catch (e) {
-    console.error('Error deleting data:', e.message);
-    res.status(500).send('Internal Server Error');
+    console.error('Error deleting data:', e.message)
+    res.status(500).send('Internal Server Error')
   }
-});
-
+})
 
 app.listen(3000)
 
