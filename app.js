@@ -62,6 +62,19 @@ app.get('/get-uploded-by-id/:id', async (req, res) => {
   }
 })
 
+app.delete("/delete/:id", async (req, res) => {
+  try {
+    const sql = `DELETE FROM stored_data;`;  // Correct SQL syntax
+    await db.run(sql);
+    console.log('All rows deleted from stored_data');
+    res.status(200).send('All rows deleted successfully');
+  } catch (e) {
+    console.error('Error deleting data:', e.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 app.listen(3000)
 
 module.exports = app
