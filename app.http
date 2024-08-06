@@ -1,4 +1,4 @@
-DELETE http://localhost:3000/del/1
+DELETE http://localhost:3000/del/3
 
 ###
 GET http://localhost:3000/all-items

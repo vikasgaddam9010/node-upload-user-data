@@ -66,11 +66,12 @@ app.get('/get-uploded-by-id/:id', async (req, res) => {
 app.delete('/del/:id', async (req, res) => {
   try {
     const {id} = req.params
-    console.log(id)
+
     const sql = `DELETE FROM stored_data WHERE id=${id};` // Correct SQL syntax
     await db.run(sql)
-    console.log('deleted from stored_data')
-    res.status(200).send('All rows deleted successfully')
+    const data = await db.all('SELECT * FROM stored_data')
+    console.log('started')
+    res.status(200).json(data)
   } catch (e) {
     console.error('Error deleting data:', e.message)
     res.status(500).send('Internal Server Error')
