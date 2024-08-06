@@ -62,7 +62,7 @@ app.get('/get-uploded-by-id/:id', async (req, res) => {
   }
 })
 
-app.delete("/del", async (req, res) => {
+app.delete("/del/:id", async (req, res) => {
   try {
     const sql = `DELETE FROM stored_data;`;  // Correct SQL syntax
     await db.run(sql);
