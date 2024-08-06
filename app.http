@@ -2,3 +2,13 @@ DELETE http://localhost:3000/del/1
 
 ###
 GET http://localhost:3000/all-items
+
+###
+POST http://localhost:3000/upload-data
+Content-Type: application/json
+{
+    "title": "Vikas",
+    "descrption": "Dev",
+    "thumbnailUrl": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "videoUrl": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
+}

@@ -39,6 +39,7 @@ app.get('/all-items', async (req, res) => {
 app.post('/upload-data', async (req, res) => {
   const {title, description, thumbnailUrl, videoUrl} = req.body
   try {
+    console.log(title)
     await db.run(
       `INSERT INTO stored_data (title, description, img_url, video_url) VALUES ("${title}", "${description}", "${thumbnailUrl}", "${videoUrl}");`,
     )
@@ -64,7 +65,9 @@ app.get('/get-uploded-by-id/:id', async (req, res) => {
 
 app.delete('/del/:id', async (req, res) => {
   try {
-    const sql = `DELETE FROM stored_data;` // Correct SQL syntax
+    const {id} = req.params
+    console.log(id)
+    const sql = `DELETE FROM stored_data WHERE id=${id};` // Correct SQL syntax
     await db.run(sql)
     console.log('deleted from stored_data')
     res.status(200).send('All rows deleted successfully')
