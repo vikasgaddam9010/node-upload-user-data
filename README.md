@@ -1,8 +1,8 @@
-# Cricket Team
+# Uploaded Data
 
-Given two files `app.js` and a database file `cricketTeam.db` consisting a table `cricket_team`.
+Given two files `app.js` and a database file `details.db` consisting a table `stored_data`.
 
-Write APIs to perform operations on the table `cricket_team` containing the following columns,
+Write APIs to perform operations on the table `stored_data` containing the following columns,
 
 | Columns       | Type    |
 | ------------- | ------- |
