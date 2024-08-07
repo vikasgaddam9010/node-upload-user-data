@@ -6,124 +6,130 @@ Write APIs to perform operations on the table `cricket_team` containing the foll
 
 | Columns       | Type    |
 | ------------- | ------- |
-| player_id     | INTEGER |
-| player_name   | TEXT    |
-| jersey_number | INTEGER |
-| role          | TEXT    |
+| id            | INTEGER |
+| title         | TEXT    |
+| description   | TEXT    |
+| image_url     | TEXT    |
+| video_url     | TEXT    |
 
 ### API 1
 
-#### Path: `/players/`
+#### Path: `/all-items/`
 
 #### Method: `GET`
 
 #### Description:
 
-Returns a list of all players in the team
+Returns a list of all uploaded data
 
 #### Response
 
 ```
 [
   {
-    playerId: 1,
-    playerName: "Lakshman",
-    jerseyNumber: 5,
-    role: "All-rounder"
+    "id": 1,
+    "title": "Vikas",
+    "description": "Early Morning",
+    "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
   },
-
+  {
+    "id": 2,
+    "title": "Vikas",
+    "description": "Good Movements",
+    "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
+  },
+  {
+    "id": 3,
+    "title": "Vikas",
+    "description": "Happy Movements",
+    "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
+  },
   ...
 ]
 ```
 
 ### API 2
 
-#### Path: `/players/`
+#### Path: `//upload-data`
 
 #### Method: `POST`
 
 #### Description:
 
-Creates a new player in the team (database). `player_id` is auto-incremented
+Creates a new data in the (database). `id` is auto-incremented
 
 #### Request
 
 ```
 {
-  "playerName": "Vishal",
-  "jerseyNumber": 17,
-  "role": "Bowler"
+    "title": "Vikas",
+    "descrption": "Dev",
+    "thumbnailUrl": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "videoUrl": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
 }
 ```
 
 #### Response
 
 ```
-Player Added to Team
+Success
 ```
 
 ### API 3
 
-#### Path: `/players/:playerId/`
+#### Path: `/get-uploded-by-id/2`
 
 #### Method: `GET`
 
 #### Description:
 
-Returns a player based on a player ID
+Returns a player based on a data id
 
 #### Response
 
 ```
 {
-  playerId: 1,
-  playerName: "Lakshman",
-  jerseyNumber: 5,
-  role: "All-rounder"
+  "id": 2,
+  "title": "Vikas",
+  "description": "Good Movements",
+  "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+  "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
 }
 ```
 
 ### API 4
 
-#### Path: `/players/:playerId/`
-
-#### Method: `PUT`
-
-#### Description:
-
-Updates the details of a player in the team (database) based on the player ID
-
-#### Request
-
-```
-{
-  "playerName": "Maneesh",
-  "jerseyNumber": 54,
-  "role": "All-rounder"
-}
-```
-
-#### Response
-
-```
-Player Details Updated
-
-```
-
-### API 5
-
-#### Path: `/players/:playerId/`
+#### Path: `/del/2`
 
 #### Method: `DELETE`
 
 #### Description:
 
-Deletes a player from the team (database) based on the player ID
+Deletes a player from the (database) based on the id
 
 #### Response
 
 ```
-Player Removed
+[
+  {
+    "id": 1,
+    "title": "Vikas",
+    "description": "undefined",
+    "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
+  },
+  {
+    "id": 3,
+    "title": "Vikas",
+    "description": "Happy Movements",
+    "img_url": "https://res.cloudinary.com/dagtd0cm9/image/upload/v1722952186/eelxuoufmvj1nydpb9u4.jpg",
+    "video_url": "https://res.cloudinary.com/dagtd0cm9/video/upload/v1722952190/ibovjca86paovezh4xg7.mp4"
+  },
+  ...
+]
 ```
 
 <br/>
